@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar-inverse {
+            background-color: #23b1a5;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: #23b1a5;
+            font-weight: 600;
+            border-color: #23b1a5;
+            border-radius: 0;
+        }
+
+        .form-control{
+            border-radius: 0px;
+        }
+
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            color: white;
+            background-color: #23b1a5;
+            border-color: #23b1a5;
+        }
+
+        label{
+            text-transform:capitalize;
+        }
+        .form-custom{
+            min-width:320px;
+        }
+        .form-control{
+            min-width:100%;
+        }
+        .btn {
+            min-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @*<footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

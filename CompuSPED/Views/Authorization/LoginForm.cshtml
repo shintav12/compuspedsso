@@ -1,0 +1,59 @@
+﻿@model CompuSPED.Models.AuthModels.LoginModel
+@{
+    ViewBag.Title = "CompuSPED";
+}
+
+<div class="login-form">
+
+    @if (!ViewBag.PageError)
+    {
+    <div class="row">
+        <div class="col-sm-6" style="height:100%">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="w-100" style="display:flex; align-items:center; height:100%">
+                <img class="img-responsive" src="@Url.Content("~/Images/logo.png")" alt="CompuSPED Logo" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            @using (Html.BeginForm("Login", "Authorization", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                
+            <div class="" style="display:flex; justify-content:center; flex-direction:column; align-items: flex-start;">
+                <h2 class="text-center">Log in</h2>
+                <br />
+                <div class="form-custom">
+                    @Html.Label("Email")
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+                    <br>
+                    @Html.Label("Password")
+                    @Html.HiddenFor(m => m.client_id)
+                    @Html.HiddenFor(m => m.redirect_uri)
+                    @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+                    <br>
+                    @if (ViewBag.Error)
+                    {
+                        <div class=""><span style="color: red">@ViewBag.Message</span></div>
+                        <br>
+                    }
+                    <input type="submit" name="Login" class="btn btn-primary btn-block pt-2" value="Login" />
+                </div>
+            </div>
+
+            }
+        </div>
+
+    </div>
+        
+        
+    }
+    else
+    {
+        <div class="" style="display:flex; justify-content:center; flex-direction:column; align-items: center;">
+            <div class=""><span style="color: red">@ViewBag.Message</span></div>
+        </div>
+    }
+</div>
